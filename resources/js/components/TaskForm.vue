@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     saveTask() {
-      const url = `${process.env.VUE_APP_API_URL || 'http://localhost:8000/api'}/tasks${this.task.id ? `/${this.task.id}` : ''}`;
+      const url = `${import.meta.env.VUE_APP_API_URL || 'http://localhost:8000/api'}/tasks${this.task.id ? `/${this.task.id}` : ''}`;
       const method = this.task.id ? 'put' : 'post';
 
       axios[method](url, this.task)

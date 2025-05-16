@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     fetchTasks() {
-      const url = `${process.env.VUE_APP_API_URL || 'http://localhost:8000/api'}/tasks`;
+      const url = `${import.meta.env.VUE_APP_API_URL || 'http://localhost:8000/api'}/tasks`;
       axios.get(url).then(response => {
         this.tasks = response.data;
       });
@@ -57,7 +57,7 @@ export default {
       this.isTaskFormVisible = true;
     },
     deleteTask(id) {
-      const url = `${process.env.VUE_APP_API_URL || 'http://localhost:8000/api'}/tasks/${id}`;
+      const url = `${import.meta.env.VUE_APP_API_URL || 'http://localhost:8000/api'}/tasks/${id}`;
       axios.delete(url).then(() => {
         this.fetchTasks();
       });
